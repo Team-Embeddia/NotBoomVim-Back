@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/embediia")
+@RequestMapping("/embeddia")
 @RequiredArgsConstructor
 public class DataController {
     private final DataService dataService;
