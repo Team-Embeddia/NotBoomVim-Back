@@ -1,9 +1,6 @@
 package org.example.boomvim.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -20,5 +17,12 @@ public class Data {
 
     private int people_count;
     private String status;
-    private String timestamp;
+
+    @Column(name = "timestamp")
+    private LocalDateTime timestamp;
+
+    @PrePersist
+    public void prePersist() {
+        this.timestamp = LocalDateTime.now(); // 데이터베이스에 저장되기 전 현재 시간 설정
+    }
 }

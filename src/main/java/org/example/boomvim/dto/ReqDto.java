@@ -10,5 +10,11 @@ import java.time.LocalDateTime;
 public class ReqDto {
     private int people_count;
     private String status;
-    private String timestamp;
+    private LocalDateTime timestamp;
+
+    public ReqDto(int peopleCount, String status) {
+        this.people_count = peopleCount;
+        this.status = status;
+        this.timestamp = LocalDateTime.now();
+    }
 }
