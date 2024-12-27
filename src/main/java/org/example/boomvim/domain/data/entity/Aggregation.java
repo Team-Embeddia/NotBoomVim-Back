@@ -1,4 +1,4 @@
-package org.example.boomvim.entity;
+package org.example.boomvim.domain.data.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -28,11 +28,11 @@ public class Aggregation {
     public Aggregation(int peopleCount, String status) {
         this.peopleCount = peopleCount;
         this.status = status;
-        this.timestamp = LocalDateTime.now();  // timestamp는 생성 시 자동으로 설정
+        this.timestamp = LocalDateTime.now();
     }
 
     @PrePersist
     public void prePersist() {
-        this.timestamp = LocalDateTime.now();  // 현재 시간 설정
+        this.timestamp = LocalDateTime.now();
     }
 }

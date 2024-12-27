@@ -13,16 +13,3 @@ spring:
     scheduling:
       pool:
         size: 5
-
-cloud:
-  aws:
-    s3:
-      bucket: ${ BUCKET }
-    credentials:
-      access-key: ${ ACCESS-KEY }
-      secret-key: ${ SECRET-KEY }
-    region:
-      static: ${ REGION }
-      auto: false
-    stack:
-      auto: false
