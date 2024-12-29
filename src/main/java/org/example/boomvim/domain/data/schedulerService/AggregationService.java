@@ -14,7 +14,7 @@ import org.springframework.web.client.RestTemplate;
 @RequiredArgsConstructor
 public class AggregationService {
     private final AggregationRepository aggregationRepository;
-    private final String url = "http://192.168.1.26:5001/aggregate_status";
+    private final String url = "http://100.123.108.91:5001/aggregate_status";
 
     @Scheduled(fixedRate = 3000)
     public void execute() {
