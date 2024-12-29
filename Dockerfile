@@ -1,12 +1,14 @@
-FROM openjdk:17
+FROM openjdk:17-slim
 
 ENV TZ=Asia/Seoul
-RUN apt-get update && apt-get install -y tzdata && \
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends tzdata ca-certificates apt-transport-https gnupg && \
     ln -fs /usr/share/zoneinfo/${TZ} /etc/localtime && \
-    dpkg-reconfigure -f noninteractive tzdata
+    dpkg-reconfigure -f noninteractive tzdata && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} app.jar
 
-# 애플리케이션 실행
 ENTRYPOINT ["java", "-jar", "/app.jar"]
