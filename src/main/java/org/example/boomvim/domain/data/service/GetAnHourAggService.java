@@ -4,6 +4,6 @@ import org.example.boomvim.domain.data.entity.Aggregation;
 
 import java.util.List;
 
-public interface GetAggregationService {
+public interface GetAnHourAggService {
     List<Aggregation> execute();
 }
