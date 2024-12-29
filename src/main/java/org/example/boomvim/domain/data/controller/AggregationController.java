@@ -16,13 +16,13 @@ import java.util.List;
 @RequestMapping("/BoomVim")
 @RequiredArgsConstructor
 public class AggregationController {
-    private final GetAnHourAggService getAggService;
+    private final GetAnHourAggService getAnHourAggService;
     private final Get6HourAggService get6HourAggService;
     private final GetDayAggService getDayAggService;
 
     @GetMapping("/anHour")
     public ResponseEntity<List<Aggregation>> getLastHourData() {
-        List<Aggregation> getRes = getAggService.execute();
+        List<Aggregation> getRes = getAnHourAggService.execute();
         return ResponseEntity.ok(getRes);
     }
 

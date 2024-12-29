@@ -40,6 +40,6 @@ public class GetAnHourAggServiceImpl implements GetAnHourAggService {
             result.add(allData.get(i * step));
         }
 
-        return allData;
+        return result;
     }
 }

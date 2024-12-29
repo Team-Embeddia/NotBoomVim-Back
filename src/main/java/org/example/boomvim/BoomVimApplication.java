@@ -11,5 +11,4 @@ public class BoomVimApplication {
     public static void main(String[] args) {
         SpringApplication.run(BoomVimApplication.class, args);
     }
-
 }
