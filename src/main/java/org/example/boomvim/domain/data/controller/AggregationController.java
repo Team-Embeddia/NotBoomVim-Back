@@ -1,8 +1,10 @@
 package org.example.boomvim.domain.data.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.example.boomvim.domain.data.dto.AggAllRes;
 import org.example.boomvim.domain.data.entity.Aggregation;
 import org.example.boomvim.domain.data.service.Get6HourAggService;
+import org.example.boomvim.domain.data.service.GetAllAggService;
 import org.example.boomvim.domain.data.service.GetAnHourAggService;
 import org.example.boomvim.domain.data.service.GetDayAggService;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +21,7 @@ public class AggregationController {
     private final GetAnHourAggService getAnHourAggService;
     private final Get6HourAggService get6HourAggService;
     private final GetDayAggService getDayAggService;
+    private final GetAllAggService getAllAggService;
 
     @GetMapping("/anHour")
     public ResponseEntity<List<Aggregation>> getLastHourData() {
@@ -36,5 +39,11 @@ public class AggregationController {
     public ResponseEntity<List<Aggregation>> getDayData() {
         List<Aggregation> getDayRes = getDayAggService.execute();
         return ResponseEntity.ok(getDayRes);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<AggAllRes> getAllData() {
+        AggAllRes getAllRes = getAllAggService.execute();
+        return ResponseEntity.ok(getAllRes);
     }
 }
